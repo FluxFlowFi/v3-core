@@ -11,6 +11,8 @@ import './UniswapV3Pool.sol';
 /// @title Canonical Uniswap V3 factory
 /// @notice Deploys Uniswap V3 pools and manages ownership and control over pool protocol fees
 contract UniswapV3Factory is IUniswapV3Factory, UniswapV3PoolDeployer, NoDelegateCall {
+    bytes32 public constant POOL_INIT_CODE_HASH = keccak256(abi.encodePacked(type(UniswapV3Pool).creationCode));
+
     /// @inheritdoc IUniswapV3Factory
     address public override owner;
 
